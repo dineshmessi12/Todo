@@ -1,0 +1,63 @@
+.counter{
+    text-align: center;
+}
+.div{
+    text-align: center;
+}
+.count{
+    justify-content: center;
+    font-size: 100px;
+    padding: 20px;
+    border-color: black;
+    border-width: 5px;
+}
+
+.btn{
+   font-size: 16px;
+   background-color: green;
+   width: 100px;
+   margin: 10px;
+   color: white;
+   padding: 15px;
+   border-radius: 20px;
+}
+
+
+.btn2{
+    font-size: 16px;
+    background-color: green;
+    width: 100px;
+    margin: 10px;
+    color: white;
+    padding: 15px;
+    border-radius: 20px;
+ }
+
+ .align{
+    display: flex;
+    justify-content: center; 
+ }
+
+ .counter-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0;
+  }
+  
+  .resetButton {
+    font-size: 16px;
+    background-color: vio ;
+    width: 100px;
+    margin: 10px;
+    color: white;
+    padding: 15px;
+    border-radius: 20px;
+  }
+  
