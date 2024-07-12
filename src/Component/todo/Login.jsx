@@ -16,15 +16,20 @@ const Login = () => {
     function handlePassword(event) {
       setPassword(event.target.value);
     }
-  
-    function handleSubmit() {
-      if (authcontext.loginPage(username, password)) {
-        navigate(`/welcome/${username}`);
-      } else {
-        setErrorMessage(true);
+
+    async function handleSubmit (){
+      const isLoggedIn= await authcontext.loginPage(username,password)
+
+      if (isLoggedIn){
+        navigate(`/welcome/${username}`)
+      }
+      else{
+        console.log("failed ")
+        setErrorMessage(true)
       }
     }
   
+
     //   function Success() {
     //     if (successMessage) {
     //       return (

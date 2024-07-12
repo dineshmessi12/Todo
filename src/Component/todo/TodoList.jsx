@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { deleteTodoApi, retrieveAllTodos } from './api/TodoApi';
 import { useAuth } from './security/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 const TodoList = () => {
-    const today = new Date();
-    const targetDate = new Date(
-      today.getFullYear(),
-      today.getMonth(),
-      today.getDay()
-    );
+    // const today = new Date();
+    // const targetDate = new Date(
+    //   today.getFullYear(),
+    //   today.getMonth(),
+    //   today.getDay()
+    // );
 
     const authContext = useAuth()
    const username = authContext.username
-   console.log(username,">>>>>>>>>")
-    const [todos,setTodos] = useState([]);
 
-    useEffect(()=>refreshTodos,[])
+   const navigate = useNavigate()
+    const [todos,setTodos] = useState([]);
+    // console.log(todos,">>>>>>>>>>>>todos<<<<<<<<<<")
+
+    useEffect(()=>refreshTodos(),[])
 
     function refreshTodos(){
     retrieveAllTodos(username).then(response=>{
@@ -58,7 +61,13 @@ const TodoList = () => {
     }
 
     function updateTodo(id){ 
+      console.log(id,"update the id")
+      navigate(`/todos/${id}`)
+    }
 
+    function addNewTodo(){
+      console.log(">>>>>>>>>>>>new todo")
+      navigate("/todos/-1")
     }
     return (
       <div className="container">
@@ -88,6 +97,7 @@ const TodoList = () => {
             </tbody>
           </table>
         </div>
+        <div className='btn btn-success m-3' onClick={addNewTodo}>Add New Todo</div>
       </div>
     );
 }

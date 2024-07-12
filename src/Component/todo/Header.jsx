@@ -6,6 +6,8 @@ const Header = () => {
     const authContext= useAuth()
     const isAuthenticated =authContext.isAuthenticated
 
+    console.log(isAuthenticated,"isAuthenticated")
+
     function logout(){
         authContext.logoutPage();
     }   

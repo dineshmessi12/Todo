@@ -14,6 +14,7 @@ import Welcome from "./Welcome";
 import Error from "./Error";
 import Header from "./Header";
 import AuthContext, { useAuth } from "./security/AuthContext";
+import Todo from "./Todo";
 
 const TodoApp = () => {
     function AuthenticatedRoute({children}){
@@ -35,8 +36,11 @@ const TodoApp = () => {
             <AuthenticatedRoute><Welcome /></AuthenticatedRoute>
             } />
           <Route path="*" element={<Error />} />
-          <Route path="todos" element={
+          <Route path="/todos" element={
             <AuthenticatedRoute> <TodoList /></AuthenticatedRoute> 
+            } />
+               <Route path="/todos/:id" element={
+            <AuthenticatedRoute> <Todo /></AuthenticatedRoute> 
             } />
           <Route path="logout" element={
           <AuthenticatedRoute>  <Logout /></AuthenticatedRoute>

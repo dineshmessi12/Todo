@@ -2,17 +2,20 @@
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { HelloWorldApi, retrieveHelloWorldApi } from "./api/HelloWorldApi";
+import { useAuth } from "./security/AuthContext";
 
 const Welcome = () => {
   const { userName } = useParams();
   const [message, setMessage] = useState(null);
+
+ const authContext= useAuth()
   function CallHelloWorld() {
     // axios
       // .get("http://localhost:8080/hello-world")
       // .then((response) => success(response))
       // .catch((error) => errorResponse(error));
       // HelloWorldApi()
-      retrieveHelloWorldApi('madhan')
+      retrieveHelloWorldApi('madhan',authContext.token)
       .then((response) => success(response))
       .catch((error) => errorResponse(error));
   }
@@ -32,7 +35,7 @@ const Welcome = () => {
       <div>
         Manage Your Todos -<Link to="/todos">Go here</Link>
       </div>
-      <div className="btn btn-success m-5" on onClick={CallHelloWorld}>
+      <div className="btn btn-success m-5"  onClick={CallHelloWorld}>
         Call hello world
       </div>
       <div className="text-info">{message}</div>

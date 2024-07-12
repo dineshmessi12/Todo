@@ -2,6 +2,7 @@
 
 // import Counter from "./Component/counter/Counter";
 import TodoApp from "./Component/todo/TodoApp";
+import AuthContext from "./Component/todo/security/AuthContext";
 
 // import Counter from "./Component/counter/Counter";
 // import LearningComponent from "./Component/LearningComponent";
@@ -18,7 +19,9 @@ function App() {
       <CounterButton by={1} />
       <CounterButton by={2} />
       <CounterButton by={3} /> */}
+      <AuthContext>
       <TodoApp/>
+      </AuthContext>
     </div>
   );
 }
