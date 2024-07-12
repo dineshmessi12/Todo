@@ -7,12 +7,16 @@ const AuthContext = ({children}) => {
 
     const [isAuthenticated, setAuthenticated] = useState(false)
 
+    const [username,setUsername] = useState(null)
+
     function loginPage(username,password){
         if (username === "user" && password === "password") {
             setAuthenticated(true)
+            setUsername(username)
             return true
           } else {
             setAuthenticated(false)
+            username(null)
             return false
           }
     }
@@ -20,7 +24,7 @@ const AuthContext = ({children}) => {
         setAuthenticated(false)
     }  
   return (
-  <AuthContextProvider.Provider value={{isAuthenticated,loginPage,logoutPage}}>
+  <AuthContextProvider.Provider value={{isAuthenticated,loginPage,logoutPage,username}}>
     {children}
   </AuthContextProvider.Provider>
   )

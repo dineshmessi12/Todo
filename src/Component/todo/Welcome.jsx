@@ -7,14 +7,12 @@ const Welcome = () => {
   const { userName } = useParams();
   const [message, setMessage] = useState(null);
   function CallHelloWorld() {
-
-   console.log('CallHelloWorld')
     // axios
       // .get("http://localhost:8080/hello-world")
       // .then((response) => success(response))
       // .catch((error) => errorResponse(error));
-      HelloWorldApi()
-      // retrieveHelloWorldApi('madhan')
+      // HelloWorldApi()
+      retrieveHelloWorldApi('madhan')
       .then((response) => success(response))
       .catch((error) => errorResponse(error));
   }
